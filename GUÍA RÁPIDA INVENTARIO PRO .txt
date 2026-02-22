@@ -1,0 +1,35 @@
+Esta aplicación permite realizar el conteo de bodega de forma rápida. Sigue estos pasos para un inventario sin errores:
+
+1. Preparación 📱
+Abrir la App: Ingresa al link enviado desde tu celular (Chrome o Safari).
+
+Instalar (Opcional): Toca los tres puntos (Android) o "Compartir" (iPhone) y selecciona "Agregar a la pantalla de inicio" para usarla como una aplicación real.
+
+Batería: Si tienes poca carga, activa el botón 🌙 Dark en la parte superior.
+
+2. Carga de Datos 📂
+Completa los campos: Bodega, Site, Fecha y Responsable.
+
+Presiona el botón azul "📂 Cargar Excel del Sistema".
+
+Selecciona el archivo maestro enviado por la administración. La lista de productos aparecerá automáticamente.
+
+3. Durante el Conteo ✍️
+Búsqueda: Usa la lupa 🔍 para buscar por nombre o código de producto. No pierdas tiempo bajando en la lista.
+
+Ingreso: Escribe la cantidad encontrada en el cuadro "Físico".
+
+Colores: * Verde 🟢: Tienes más stock que el sistema o está cuadrado.
+
+Rojo 🔴: Te falta stock (faltante).
+
+Progreso: Mira la barra naranja en la parte superior; se pondrá Verde al 100% cuando hayas contado todo.
+
+4. Finalización y Reporte 📄
+Al terminar, verifica que el Gran Total coincida con tus expectativas.
+
+Presiona "📊 Exportar Excel" y "📄 PDF".
+
+IMPORTANTE: Envía ambos archivos por correo o WhatsApp a tu supervisor antes de cerrar la página.
+
+⚠️ NOTA DE SEGURIDAD: No borres el historial del navegador ni limpies los datos del teléfono mientras estés realizando el inventario, o perderás el avance.
