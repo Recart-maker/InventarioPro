@@ -9,7 +9,20 @@ header { background: var(--dark); color: white; padding: 15px; }
 .header-inputs input { flex: 1; padding: 10px; border-radius: 5px; border: none; font-size: 0.9em; }
 
 .progress-container { background: #444; border-radius: 10px; margin: 15px 0; height: 15px; overflow: hidden; }
-.progress-bar { background: var(--green); height: 100%; transition: width 0.3s; font-size: 0.7em; text-align: center; }
+.progress-bar { 
+    background: var(--green); 
+    height: 100%; 
+    transition: width 0.3s ease; 
+    font-size: 0.8em; 
+    text-align: center;
+    /* Nuevas líneas para centrado perfecto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    min-width: 30px; /* Evita que el número se amontone cuando está cerca de 0% */
+}
 
 .btn-import { background: var(--blue); padding: 10px; border-radius: 5px; display: block; text-align: center; cursor: pointer; font-size: 0.9em; }
 

@@ -83,6 +83,7 @@ function renderizarTarjetas(lista) {
         </div>`;
     }).join('');
     actualizarTotalesGenerales();
+    actualizarBarraProgreso(); // <--- AÑADE ESTO AQUÍ TAMBIÉN
 }
 
 function actualizarConteo(input, teorico, precio, key) {
@@ -105,6 +106,7 @@ function actualizarConteo(input, teorico, precio, key) {
     cantD.className = "cant-dif-val " + color;
     
     actualizarTotalesGenerales();
+    actualizarBarraProgreso(); // <--- AGREGA ESTA LÍNEA AQUÍ
 }
 
 function actualizarTotalesGenerales() {
@@ -263,4 +265,50 @@ function exportarPDF() {
 
 function formatearMoneda(v) {
     return new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 }).format(v);
+}
+
+function actualizarBarraProgreso() {
+    const total = productosBase.length;
+    if (total === 0) return;
+
+    // Contamos cuántos productos tienen un valor físico ingresado en la memoria
+    const contados = productosBase.filter(p => {
+        const valor = localStorage.getItem(`inv-${p.codigo}-${p.lote}`);
+        return valor !== null && valor !== ""; 
+    }).length;
+
+    const porc = Math.round((contados / total) * 100);
+    const bar = document.getElementById('progress-bar');
+    
+    if (bar) {
+        bar.style.width = porc + "%"; 
+        bar.innerText = porc + "%";   
+        
+        // Color dinámico: Naranja si está en proceso, Verde si está al 100%
+        if (porc < 100) {
+            bar.style.backgroundColor = "#f39c12"; 
+        } else {
+            bar.style.backgroundColor = "#27ae60"; 
+        }
+    }
+}
+
+function filtrarProductos() {
+    const t = document.getElementById('search').value.toLowerCase();
+    const filtrados = productosBase.filter(p => 
+        p.nombre.toLowerCase().includes(t) || 
+        p.codigo.toLowerCase().includes(t) || 
+        p.lote.toLowerCase().includes(t)
+    );
+    renderizarTarjetas(filtrados);
+}
+
+function limpiarTodo() {
+    if(confirm("¿Seguro que quieres borrar todo el conteo actual?")) {
+        // Borramos solo los datos del inventario, no la configuración (meta)
+        productosBase.forEach(p => {
+            localStorage.removeItem(`inv-${p.codigo}-${p.lote}`);
+        });
+        location.reload();
+    }
 }

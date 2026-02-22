@@ -1,4 +1,4 @@
-# 📦 Sistema de Inventario Físico - Invantario Pro
+# 📦 Sistema de Inventario Físico - UPC San Francisco
 
 Esta es una aplicación web progresiva (PWA) diseñada para realizar tomas de inventario físico de manera ágil y profesional desde cualquier dispositivo móvil o computadora. Permite la carga de datos desde Excel, el conteo en tiempo real con cálculos automáticos de diferencias y la exportación de reportes detallados en formatos PDF y Excel.
 
@@ -50,5 +50,4 @@ Para usarlo como una aplicación en el celular:
 3.  Selecciona **"Agregar a la pantalla de inicio"** en las opciones de tu navegador.
 
 ---
-
 Desarrollado para la toma de inventarios en **Casinos**.
