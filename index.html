@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario Pro - Bodega</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <header>
+        <div class="main-title">GESTIÓN DE INVENTARIO</div>
+        
+        <div class="header-inputs">
+            <div class="input-group">
+                <input type="text" id="bodega" placeholder="Bodega (ej: Porsche)" oninput="guardarMeta()">
+                <input type="text" id="site" placeholder="Site (ej: 8401)" oninput="guardarMeta()">
+            </div>
+            <div class="input-group">
+                <input type="date" id="fecha" oninput="guardarMeta()">
+                <input type="text" id="responsable" placeholder="Responsable" oninput="guardarMeta()">
+            </div>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar">0%</div>
+        </div>
+
+        <div class="action-buttons">
+            <label for="file-upload" class="btn-import">📂 Cargar Excel del Sistema</label>
+            <input type="file" id="file-upload" accept=".xlsx, .xls, .csv" onchange="leerArchivo(this)" style="display:none">
+        </div>
+    </header>
+
+    <main id="app">
+        <div class="search-container">
+            <input type="text" id="search" placeholder="🔍 Buscar por Nombre, Código" oninput="filtrarProductos()">
+        </div>
+        
+        <div id="product-list"></div>
+
+        <div class="export-zone">
+            <button class="btn-export csv" onclick="exportarExcel()">📊 Exportar Excel</button>
+            <button class="btn-export pdf" onclick="exportarPDF()">📄 PDF</button>
+        </div>
+        <button id="clear-btn" onclick="limpiarTodo()" style="background:#95a5a6; color:white; border:none; padding:10px; width:90%; margin:10px 5%; border-radius:8px;">🗑️ Borrar Datos Actuales</button>
+    </main>
+
+   <div class="footer-total">
+    <div class="footer-col">
+        <span>FÍSICO:</span>
+        <span id="gran-total">$ 0</span>
+    </div>
+    <div class="footer-col">
+        <span id="info-extra-pantalla" style="font-size: 0.7em;">Ajuste: 0%</span>
+    </div>
+</div>
+
+    <script src="app.js"></script>
+</body>
+</html>
