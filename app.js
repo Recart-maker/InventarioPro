@@ -312,3 +312,26 @@ function limpiarTodo() {
         location.reload();
     }
 }
+
+function toggleDarkMode() {
+    const body = document.body;
+    const btn = document.getElementById('dark-mode-btn');
+    
+    body.classList.toggle('dark-mode');
+    
+    if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+        btn.innerText = "☀️ Light";
+    } else {
+        localStorage.setItem('theme', 'light');
+        btn.innerText = "🌙 Dark";
+    }
+}
+
+// Al cargar la página, revisar si ya estaba en modo oscuro
+window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+        document.getElementById('dark-mode-btn').innerText = "☀️ Light";
+    }
+});

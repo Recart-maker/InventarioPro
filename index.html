@@ -33,6 +33,11 @@
             <label for="file-upload" class="btn-import">📂 Cargar Excel del Sistema</label>
             <input type="file" id="file-upload" accept=".xlsx, .xls, .csv" onchange="leerArchivo(this)" style="display:none">
         </div>
+        <div class="dark-mode-container" style="text-align: right; padding: 5px 15px;">
+    <button id="dark-mode-btn" onclick="toggleDarkMode()" style="background: #444; color: white; border: 1px solid #666; padding: 5px 15px; border-radius: 20px; font-size: 0.8em; cursor: pointer;">
+        🌙 Dark
+    </button>
+</div>
     </header>
 
     <main id="app">
